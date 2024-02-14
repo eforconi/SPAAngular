@@ -1,0 +1,49 @@
+/* login.component.scss */
+
+:host {
+
+    .login-container {
+    display: flex;
+    justify-content: center; /* Center horizontally */
+    align-items: center; /* Center vertically */
+    height: 100vh; /* Adjust as needed */
+    flex-direction: column;
+  }
+  
+  form {
+    max-width: 400px;
+    width: 100%;
+    padding: 20px;
+  }
+  
+  input {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 15px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+  }
+  
+  /* Style the error messages in red */
+  div.error {
+    color: red;
+    font-size: 14px;
+    margin-top: 5px;
+  }
+  
+  button[type="submit"] {
+    background-color: #007bff;
+    color: #fff;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 4px;
+    cursor: pointer;
+    margin: 0 auto;
+    display: block;
+  }
+  
+  button[type="submit"]:hover {
+    background-color: #0056b3;
+  }
+}
+  
