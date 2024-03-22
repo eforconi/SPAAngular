@@ -1,8 +1,10 @@
 // login.component.ts
 
+import { HttpClient } from '@angular/common/http';
 import { Component } from '@angular/core';
 import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
-import { AuthService } from '../../services/auth-service.service';
+import { Router } from '@angular/router';
+import { AuthService } from './services/auth-service.service';
 
 @Component({
   selector: 'app-login',
@@ -10,14 +12,22 @@ import { AuthService } from '../../services/auth-service.service';
   styleUrls: ['./login.component.scss'],
 })
 export class LoginComponent {
+  data:any;
   myForm: FormGroup;
   emailControl: FormControl; // Separate variable for email control
   passwordControl: FormControl; // Separate variable for password control
 
-  constructor(private authService: AuthService,private fb: FormBuilder) {
+  constructor(private authService: AuthService,private fb: FormBuilder, private http:HttpClient, private router: Router) {
     this.emailControl = new FormControl('', [Validators.required, Validators.email]);
     this.passwordControl = new FormControl('', Validators.required);
-
+    console.log("lalall");
+    
+    this.http.get('http://localhost:3000/users').subscribe(
+      (data) => {
+        this.data = data
+        console.log("data",this.data);
+      });
+    
     this.myForm = this.fb.group({
       email: this.emailControl,
       password: this.passwordControl,
@@ -25,6 +35,7 @@ export class LoginComponent {
   }
 
   loginUser(): void {
+    
     // Validate input (e.g., check if fields are not empty)
     if (!this.myForm.get('email')?.value || !this.myForm.get('password')?.value) {
       console.error('Email and password are required.');
@@ -34,12 +45,15 @@ export class LoginComponent {
     this.authService.login(this.emailControl.value, this.passwordControl.value).subscribe(
       (response) => {
         // Handle successful login (e.g., store token, navigate to dashboard)
-        debugger;
         console.log('Login successful:', response);
+        response.forEach((element:any) => {
+          if(element.email === this.emailControl.value && element.password === this.passwordControl.value) {
+            this.router.navigate(['/location']);         
+          }
+        });
       },
       (error) => {
         // Handle login error (e.g., display error message)
-        debugger;
         console.error('Login failed:', error);
       }
     );
