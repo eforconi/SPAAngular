@@ -2,7 +2,7 @@ import { createSelector, createFeatureSelector } from '@ngrx/store';
 import { AppState } from '../app.state';
 import { InstructorState } from './instructor.reducer';
 
-export const selectIntructors =(state: AppState) => state.instructor;
+export const selectIntructors =(state: AppState) => state.instructors;
 
 // Define a selector to get the list of instructors
 export const getInstructors = createSelector(

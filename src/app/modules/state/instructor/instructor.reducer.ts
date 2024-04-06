@@ -3,24 +3,24 @@ import { Instructor } from "../../models/instructor.model";
 import { instructorActions } from "./instructor.actions";
 
 export interface InstructorState {
-    instructors: Instructor[];
+    instructors: Instructor[]; // Corrected property name
     loading: boolean;
     error: any;
 }
 
 export const initialState: InstructorState = {
-    instructors: [],
+    instructors: [], // Corrected property name
     loading: false,
     error: null
 };
 
 export const instructorReducer = createReducer(
     initialState,
-    on(instructorActions.addInstructor, (state, {instructor}) => ({
+    on(instructorActions.addInstructor, (state, { instructor }) => ({
         ...state,
-        todos: [...state.instructors, instructor]}
-    )),
-    on(instructorActions.removeInstructor, (state, {id}) => ({
+        instructors: [...state.instructors, instructor],
+    })),
+    on(instructorActions.removeInstructor, (state, { id }) => ({
         ...state,
         instructors: state.instructors.filter(instructor => instructor.id !== id)
     })),
@@ -28,12 +28,12 @@ export const instructorReducer = createReducer(
         ...state,
         loading: true
     })),
-    on(instructorActions.loadInstructorsSuccess, (state, {instructors}) => ({
+    on(instructorActions.loadInstructorsSuccess, (state, { instructors }) => ({
         ...state,
         instructors,
         loading: false
     })),
-    on(instructorActions.loadInstructorsFailure, (state, {error}) => ({
+    on(instructorActions.loadInstructorsFailure, (state, { error }) => ({
         ...state,
         error,
         loading: false

@@ -9,6 +9,7 @@ import { LoginComponent } from './modules/components/login/login.component';
 import { LocationSelectorComponent } from './modules/components/location-selector/location-selector.component';
 import { StoreModule, reduceState } from '@ngrx/store';
 import { StoreDevtoolsModule } from '@ngrx/store-devtools';
+import { instructorReducer } from './modules/state/instructor/instructor.reducer';
 
 @NgModule({
   declarations: [
@@ -21,7 +22,7 @@ import { StoreDevtoolsModule } from '@ngrx/store-devtools';
     AppRoutingModule,
     ReactiveFormsModule,
     HttpClientModule,
-    StoreModule.forRoot(reduceState),
+    StoreModule.forRoot({ instructors: instructorReducer }),
     StoreDevtoolsModule.instrument({
       maxAge: 25, // Retains last 25 states
       // logOnly: environment.production // Restrict extension to log-only mode in production
