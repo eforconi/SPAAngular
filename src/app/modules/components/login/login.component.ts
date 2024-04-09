@@ -20,12 +20,10 @@ export class LoginComponent {
   constructor(private authService: AuthService,private fb: FormBuilder, private http:HttpClient, private router: Router) {
     this.emailControl = new FormControl('', [Validators.required, Validators.email]);
     this.passwordControl = new FormControl('', Validators.required);
-    console.log("lalall");
     
     this.http.get('http://localhost:3000/users').subscribe(
       (data) => {
         this.data = data
-        console.log("data",this.data);
       });
     
     this.myForm = this.fb.group({
@@ -45,7 +43,6 @@ export class LoginComponent {
     this.authService.login(this.emailControl.value, this.passwordControl.value).subscribe(
       (response) => {
         // Handle successful login (e.g., store token, navigate to dashboard)
-        console.log('Login successful:', response);
         response.forEach((element:any) => {
           if(element.email === this.emailControl.value && element.password === this.passwordControl.value) {
             this.router.navigate(['/location']);         

@@ -31,7 +31,8 @@ export const instructorReducer = createReducer(
     on(instructorActions.loadInstructorsSuccess, (state, { instructors }) => ({
         ...state,
         instructors,
-        loading: false
+        loading: false,
+        error: null
     })),
     on(instructorActions.loadInstructorsFailure, (state, { error }) => ({
         ...state,

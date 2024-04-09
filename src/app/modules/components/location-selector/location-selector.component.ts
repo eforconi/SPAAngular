@@ -17,12 +17,10 @@ export class LocationSelectorComponent implements OnInit {
   }
 
   ngOnInit(): void {
-    console.log("location");
     this.store.dispatch(instructorActions.loadInstructors());
     this.store.dispatch(instructorActions.addInstructor({instructor: this.instructor}));
     this.instructors$.subscribe((data) => {
       console.log("location intructors",data);
     });
-
   }
 }

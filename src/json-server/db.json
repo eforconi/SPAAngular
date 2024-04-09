@@ -24,5 +24,40 @@
       "email": "gracefunsho@gmail.com",
       "password": "09033333333"
     }
+  ],
+
+  "instructors": [
+    {
+      "id": "1",
+      "name": "John Doe",
+      "email": "email", 
+      "expertise": ["expertise"], 
+      "courses": [], 
+      "price": 0
+    },
+    {
+      "id": "2",
+      "name": "Jane Doe",
+      "email": "email", 
+      "expertise": ["expertise"], 
+      "courses": [], 
+      "price": 0
+    },
+    {
+      "id": "3",
+      "name": "John Doe",
+      "email": "email", 
+      "expertise": ["expertise"], 
+      "courses": [], 
+      "price": 0
+    },
+    {
+      "id": "4",
+      "name": "Jane Doe",
+      "email": "email", 
+      "expertise": ["expertise"], 
+      "courses": [], 
+      "price": 0
+    }
   ]
 }

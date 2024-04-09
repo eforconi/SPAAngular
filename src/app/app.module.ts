@@ -10,12 +10,16 @@ import { LocationSelectorComponent } from './modules/components/location-selecto
 import { StoreModule, reduceState } from '@ngrx/store';
 import { StoreDevtoolsModule } from '@ngrx/store-devtools';
 import { instructorReducer } from './modules/state/instructor/instructor.reducer';
+import { InstructorsListComponent } from './modules/components/intructors-list/instructors-list.component';
+import { EffectsModule } from '@ngrx/effects';
+import { InstructorEffects } from './modules/state/instructor/instructor.effects';
 
 @NgModule({
   declarations: [
     AppComponent,
     LoginComponent,
-    LocationSelectorComponent
+    LocationSelectorComponent,
+    InstructorsListComponent
   ],
   imports: [
     BrowserModule,
@@ -23,6 +27,7 @@ import { instructorReducer } from './modules/state/instructor/instructor.reducer
     ReactiveFormsModule,
     HttpClientModule,
     StoreModule.forRoot({ instructors: instructorReducer }),
+    EffectsModule.forRoot([InstructorEffects]),
     StoreDevtoolsModule.instrument({
       maxAge: 25, // Retains last 25 states
       // logOnly: environment.production // Restrict extension to log-only mode in production

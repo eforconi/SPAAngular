@@ -13,7 +13,6 @@ export class AppComponent {
     this.http.get('http://localhost:3000/users').subscribe(
       (data) => {
         this.data = data
-        console.log("data",this.data);
       });
     
   }
