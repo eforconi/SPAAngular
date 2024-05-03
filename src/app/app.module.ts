@@ -13,6 +13,7 @@ import { instructorReducer } from './modules/state/instructor/instructor.reducer
 import { InstructorsListComponent } from './modules/components/intructors-list/instructors-list.component';
 import { EffectsModule } from '@ngrx/effects';
 import { InstructorEffects } from './modules/state/instructor/instructor.effects';
+import { AuthService } from './_services/auth-service.service';
 
 @NgModule({
   declarations: [
@@ -33,7 +34,7 @@ import { InstructorEffects } from './modules/state/instructor/instructor.effects
       // logOnly: environment.production // Restrict extension to log-only mode in production
   }),
   ],
-  providers: [],
+  providers: [AuthService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

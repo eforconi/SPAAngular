@@ -3,7 +3,7 @@ import { Actions, createEffect, ofType } from '@ngrx/effects';
 import { Observable, from, of } from 'rxjs';
 import { catchError, map, mergeMap, switchMap } from 'rxjs/operators';
 import { instructorActions } from './instructor.actions';
-import { IntructorsListService } from '../../components/intructors-list/services/intructors-list.service';
+import { IntructorsListService } from '../../../_services/instructors-list.service';
 import { Instructor } from '../../models/instructor.model';
 
 @Injectable()
