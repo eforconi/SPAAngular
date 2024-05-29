@@ -1,62 +1,10 @@
-# SPAAngular
+# KiteApp
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 16.2.0.
+This is a personal project to showcase my portfolio and an idea that interests me, as I love kitesurfing. It is a Single Page Application (SPA) designed to help people who are starting their journey in kitesurfing find their kite instructor.
 
-## Development server
+The website will provide a list of kite instructors registered at your location, along with their experience, disciplines, prices, equipment, and qualifications, as well as their ratings.
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The application will automatically reload if you change any of the source files.
+Another user type will be the kite instructor, who can create and manage their profile and services.
 
-## Code scaffolding
+An expansion for this project could include two additional views: one for tourist services, such as kite trips or specialized clinics focused on a particular kite discipline, and the other a marketplace for buying and selling kite equipment.
 
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
-
-## Build
-
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory.
-
-## Running unit tests
-
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
-
-## Running end-to-end tests
-
-Run `ng e2e` to execute the end-to-end tests via a platform of your choice. To use this command, you need to first add a package that implements end-to-end testing capabilities.
-
-## Further help
-
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI Overview and Command Reference](https://angular.io/cli) page.
-
-Possible structure
-
-app/
-├── core/
-│   ├── constants/
-│   ├── guards/
-│   ├── interceptors/
-│   ├── models/
-│   └── services/
-├── modules/
-│   ├── feature1/
-│   │   ├── components/
-│   │   ├── services/
-│   │   ├── store/
-│   │   │   ├── feature1.actions.ts
-│   │   │   ├── feature1.effects.ts
-│   │   │   └── feature1.reducer.ts
-│   ├── feature2/
-│   │   ├── components/
-│   │   ├── services/
-│   │   ├── store/
-│   │   │   ├── feature2.actions.ts
-│   │   │   ├── feature2.effects.ts
-│   │   │   └── feature2.reducer.ts
-│   └── shared/
-│       ├── components/
-│       ├── directives/
-│       ├── pipes/
-│       └── services/
-├── app.component.ts
-├── app.module.ts
-├── app-routing.module.ts
-├── app.component.html
-└── app.component.scss
