@@ -1,4 +1,4 @@
-import { HttpClientModule } from '@angular/common/http';
+import { provideHttpClient, withInterceptorsFromDi } from '@angular/common/http';
 import { NgModule } from '@angular/core';
 import { ReactiveFormsModule } from '@angular/forms';
 import { BrowserModule } from '@angular/platform-browser';
@@ -15,26 +15,19 @@ import { EffectsModule } from '@ngrx/effects';
 import { InstructorEffects } from './modules/state/instructor/instructor.effects';
 import { AuthService } from './_services/auth-service.service';
 
-@NgModule({
-  declarations: [
-    AppComponent,
-    LoginComponent,
-    LocationSelectorComponent,
-    InstructorsListComponent
-  ],
-  imports: [
-    BrowserModule,
-    AppRoutingModule,
-    ReactiveFormsModule,
-    HttpClientModule,
-    StoreModule.forRoot({ instructors: instructorReducer }),
-    EffectsModule.forRoot([InstructorEffects]),
-    StoreDevtoolsModule.instrument({
-      maxAge: 25, // Retains last 25 states
-      // logOnly: environment.production // Restrict extension to log-only mode in production
-  }),
-  ],
-  providers: [AuthService],
-  bootstrap: [AppComponent]
-})
+@NgModule({ declarations: [
+        AppComponent,
+        LoginComponent,
+        LocationSelectorComponent,
+        InstructorsListComponent
+    ],
+    bootstrap: [AppComponent], imports: [BrowserModule,
+        AppRoutingModule,
+        ReactiveFormsModule,
+        StoreModule.forRoot({ instructors: instructorReducer }),
+        EffectsModule.forRoot([InstructorEffects]),
+        StoreDevtoolsModule.instrument({
+            maxAge: 25, // Retains last 25 states
+            // logOnly: environment.production // Restrict extension to log-only mode in production
+        })], providers: [AuthService, provideHttpClient(withInterceptorsFromDi())] })
 export class AppModule { }
