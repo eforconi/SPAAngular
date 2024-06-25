@@ -14,6 +14,11 @@ import { InstructorsListComponent } from './modules/components/intructors-list/i
 import { EffectsModule } from '@ngrx/effects';
 import { InstructorEffects } from './modules/state/instructor/instructor.effects';
 import { AuthService } from './_services/auth-service.service';
+import {FormControl, FormsModule} from '@angular/forms';
+import {MatSelectModule} from '@angular/material/select';
+import {MatFormFieldModule} from '@angular/material/form-field';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+
 
 @NgModule({ declarations: [
         AppComponent,
@@ -21,9 +26,12 @@ import { AuthService } from './_services/auth-service.service';
         LocationSelectorComponent,
         InstructorsListComponent
     ],
-    bootstrap: [AppComponent], imports: [BrowserModule,
+    bootstrap: [AppComponent], 
+    imports: [BrowserModule,
         AppRoutingModule,
         ReactiveFormsModule,
+        BrowserAnimationsModule,
+        MatFormFieldModule, MatSelectModule, FormsModule, ReactiveFormsModule,
         StoreModule.forRoot({ instructors: instructorReducer }),
         EffectsModule.forRoot([InstructorEffects]),
         StoreDevtoolsModule.instrument({
