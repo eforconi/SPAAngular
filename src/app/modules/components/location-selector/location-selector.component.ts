@@ -9,7 +9,7 @@ import { FormControl } from '@angular/forms';
 @Component({
   selector: 'app-location-selector',
   templateUrl: './location-selector.component.html',
-  styleUrls: ['./location-selector.component.scss'],
+  styleUrls: ['./location-selector.component.scss']
 })
 export class LocationSelectorComponent implements OnInit {
   instructors$ = this.store.select(state => selectIntructors(state));
