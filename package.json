@@ -3,6 +3,7 @@
   "version": "0.0.0",
   "scripts": {
     "ng": "ng",
+    "nx": "node load-env.js",
     "start": "nx serve",
     "build": "nx build",
     "watch": "nx build --watch --configuration development",
@@ -40,6 +41,7 @@
     "@nx/workspace": "19.5.1",
     "@schematics/angular": "~18.0.1",
     "@types/jasmine": "~4.3.0",
+    "dotenv": "^16.4.5",
     "jasmine-core": "~4.6.0",
     "karma": "~6.4.0",
     "karma-chrome-launcher": "~3.2.0",

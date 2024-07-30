@@ -32,5 +32,5 @@
       "!{projectRoot}/**/*.spec.[jt]s"
     ]
   },
-  "nxCloudAccessToken": "NDk3ZmQzYjItN2RiYy00ZjUzLWI1ZWMtM2U3MGQ1YTEyODQyfHJlYWQtd3JpdGU="
+  "nxCloudAccessToken": "${NX_CLOUD_ACCESS}"
 }
