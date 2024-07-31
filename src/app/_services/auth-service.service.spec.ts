@@ -1,17 +1,18 @@
 // auth.service.spec.ts
 
 import { TestBed } from '@angular/core/testing';
-import { provideHttpClientTesting } from '@angular/common/http/testing';
+import { HttpTestingController, provideHttpClientTesting } from '@angular/common/http/testing';
 import { AuthService } from './auth-service.service';
-import { provideHttpClient, withInterceptorsFromDi } from '@angular/common/http';
+import { HttpClient, provideHttpClient, withInterceptorsFromDi } from '@angular/common/http';
 
 describe('AuthService', () => {
   let service: AuthService;
-
   beforeEach(() => {
     TestBed.configureTestingModule({
-    imports: [],
-    providers: [AuthService, provideHttpClient(withInterceptorsFromDi()), provideHttpClientTesting()]
+    providers: [
+      provideHttpClient(),
+      provideHttpClientTesting()
+    ],
 });
     service = TestBed.inject(AuthService);
   });

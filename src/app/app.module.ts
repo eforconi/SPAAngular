@@ -1,4 +1,4 @@
-import { provideHttpClient, withInterceptorsFromDi } from '@angular/common/http';
+import { HttpClient, HttpClientModule, provideHttpClient, withInterceptorsFromDi } from '@angular/common/http';
 import { NgModule } from '@angular/core';
 import { ReactiveFormsModule } from '@angular/forms';
 import { BrowserModule } from '@angular/platform-browser';
@@ -15,9 +15,10 @@ import { EffectsModule } from '@ngrx/effects';
 import { InstructorEffects } from './modules/state/instructor/instructor.effects';
 import { AuthService } from './_services/auth-service.service';
 import {FormControl, FormsModule} from '@angular/forms';
-import {MatSelectModule} from '@angular/material/select';
+import {MatSelectModule, MatSelectTrigger} from '@angular/material/select';
 import {MatFormFieldModule} from '@angular/material/form-field';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { MatInputModule } from '@angular/material/input';
 
 
 @NgModule({ declarations: [
@@ -27,15 +28,23 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
         InstructorsListComponent
     ],
     bootstrap: [AppComponent], 
-    imports: [BrowserModule,
+    imports: [
+        BrowserModule,
         AppRoutingModule,
         ReactiveFormsModule,
         BrowserAnimationsModule,
-        MatFormFieldModule, MatSelectModule, FormsModule, ReactiveFormsModule,
+        MatFormFieldModule, 
+        MatSelectModule,
+        FormsModule,
+        MatInputModule,
+        ReactiveFormsModule,
         StoreModule.forRoot({ instructors: instructorReducer }),
         EffectsModule.forRoot([InstructorEffects]),
         StoreDevtoolsModule.instrument({
             maxAge: 25, // Retains last 25 states
             // logOnly: environment.production // Restrict extension to log-only mode in production
-        })], providers: [AuthService, provideHttpClient(withInterceptorsFromDi())] })
+        })],
+    providers: [ 
+        provideHttpClient(),
+    ] })
 export class AppModule { }

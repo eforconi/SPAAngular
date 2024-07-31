@@ -1,6 +1,6 @@
 <div class="login-container">
     <h1>Log in</h1>
-    <form [formGroup]="myForm" (ngSubmit)="loginUser()">
+    <form (ngSubmit)="loginUser()">
         <div>
           <input type="text" formControlName="email" placeholder="Email" />
           <!-- Display validation errors if needed -->
